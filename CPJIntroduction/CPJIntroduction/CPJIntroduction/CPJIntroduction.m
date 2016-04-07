@@ -49,6 +49,7 @@ CPJMODEL_IMPLEMENT(CPJIntroductionArray)
         NSDictionary *introduction = responseObject;
         
         CPJIntroductionArray* introductionArray = [[CPJJSONAdapter new] modelsOfClass:[CPJIntroductionArray class] fromJSON:introduction];
+        NSLog(@"introductionArray.eventID:%@      [self.defaults objectForKey:EVENT_ID]:%@", introductionArray.eventID, [self.defaults objectForKey:EVENT_ID]);
         if([introductionArray.eventID isEqualToString:[self.defaults objectForKey:EVENT_ID]]){
             NSLog(@"eventID 已经存在！");
             [self.defaults setBool:NO forKey:EVENT];
@@ -75,10 +76,6 @@ CPJMODEL_IMPLEMENT(CPJIntroductionArray)
             if (res) {
                 NSLog(@"文件写入成功");
                 dispatch_async(dispatch_get_main_queue(), ^{
-//                    if([[self.defaults objectForKey:EVENT_ID] isEqualToString:introductionArray.eventID]){
-//                        return;
-//                    }
-                    
                     [self.defaults setObject:introductionArray.eventID forKey:EVENT_ID];
                     [self.defaults setBool:YES forKey:EVENT];
                     [self.defaults synchronize];
@@ -93,11 +90,7 @@ CPJMODEL_IMPLEMENT(CPJIntroductionArray)
     } failure:^(AFHTTPRequestOperation *operation, NSError*error) {
         NSLog(@"失败");
     }];
-    
-    
-    
-    
-    
+
 }
 
 - (void)addToViewController:(UIViewController *)viewController{
@@ -143,9 +136,10 @@ CPJMODEL_IMPLEMENT(CPJIntroductionArray)
         [self.defaults setObject:[self getAppVersion] forKey:VERSION];
         [self.defaults synchronize];
         return YES;
-    }else if([self.defaults objectForKey:EVENT]){
+    }else if([[self.defaults objectForKey:EVENT] boolValue]){
         // app当前有活动（活动从服务端获取）
         //
+        NSLog(@"event:%@", [self.defaults objectForKey:EVENT]);
         [self.defaults setBool:NO forKey:EVENT];
         [self.defaults synchronize];
         return YES;

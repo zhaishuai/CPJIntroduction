@@ -750,6 +750,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CPJIntroduction/PrefixHeader.pch";
 				INFOPLIST_FILE = CPJIntroduction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJIntroduction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -767,6 +768,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CPJIntroduction/PrefixHeader.pch";
 				INFOPLIST_FILE = CPJIntroduction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhaishuai.CPJIntroduction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -838,6 +840,7 @@
 				D981E1211CB604C0008B5DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D981E1221CB604C0008B5DA1 /* Build configuration list for PBXNativeTarget "CPJIntroductionTests" */ = {
 			isa = XCConfigurationList;
@@ -846,6 +849,7 @@
 				D981E1241CB604C0008B5DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D981E1251CB604C0008B5DA1 /* Build configuration list for PBXNativeTarget "CPJIntroductionUITests" */ = {
 			isa = XCConfigurationList;
@@ -854,6 +858,7 @@
 				D981E1271CB604C0008B5DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

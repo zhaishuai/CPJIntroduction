@@ -4,9 +4,8 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-tasks = [
-    {
-  "event_id" : "1.4",
+tasks = {
+  "event_id" : "1.8",
   "introductions" : [
     {
       "title" : "情怀",
@@ -19,14 +18,12 @@ tasks = [
       "details" : "各种硬， 各种尖， 各种钻， 钉子精神",
       "image" : "hello.png",
       "background_image" : "backgroundImage.png"
-    }
-  ]
+    }]
 }
-]
 
 @app.route('/todo/api/v1.0/tasks', methods=['GET'])
 def get_tasks():
-    return jsonify({'tasks': tasks})
+    return jsonify(tasks)
 
 if __name__ == '__main__':
     app.run(debug=True)

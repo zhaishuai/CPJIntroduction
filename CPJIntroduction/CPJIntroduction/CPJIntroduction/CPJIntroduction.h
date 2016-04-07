@@ -12,7 +12,7 @@
 @interface CPJIntroduction : NSObject
 
 /**
- * 从服务端获取需要展示的信息，在应用启动时调用该方法。
+ * 从服务端获取需要展示的信息，在应用启动时调用该方法, 或者在通知中调用。
  */
 - (void)requestNewIntroductionInfo;
 
