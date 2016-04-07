@@ -21,6 +21,7 @@
     CPJIntroduction *intr = [[CPJIntroduction alloc] init];
     
     [intr requestNewIntroductionInfo];
+    [intr addToViewController:self];
     
 }
 

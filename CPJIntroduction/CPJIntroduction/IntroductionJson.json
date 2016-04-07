@@ -1,1 +1,17 @@
-hello world!\n
+{
+    "event_id" : "1",
+    "introductions" : [
+                       {
+                       "title" : "屌丝",
+                       "details" : "各种无敌， 各种牛人， 各种挑战， 等你来战",
+                       "image" : "hello.png",
+                       "background_image" : "backgroundImage.png"
+                       },
+                       {
+                       "title" : "女神",
+                       "details" : "各种硬， 各种尖， 各种钻， 钉子精神",
+                       "image" : "hello.png",
+                       "background_image" : "backgroundImage.png"
+                       }
+                       ]
+}
