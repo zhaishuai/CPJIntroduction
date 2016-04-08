@@ -39,14 +39,9 @@ CPJMODEL_IMPLEMENT(CPJIntroductionArray)
 
 - (void)requestNewIntroductionInfo{
     // TODO:做网络请求
-    
-    NSString *URLString = @"http://127.0.0.1:5000/todo/api/v1.0/tasks";
-    NSDictionary *parameters = @{};
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"成功： %@", responseObject);
-        //成功后重写json文件
-        NSDictionary *introduction = responseObject;
+    CPJAbstractNetworking *network = [[CPJAbstractNetworking alloc] initWithUrl:@"http://127.0.0.1:5000/todo/api/v1.0/tasks" withDataClass:CPJIntroductionArray.class withParameters:@{}];
+    [network addSuccessDict:^(NSDictionary * _Nullable dict) {
+        NSDictionary *introduction = dict;
         
         CPJIntroductionArray* introductionArray = [[CPJJSONAdapter new] modelsOfClass:[CPJIntroductionArray class] fromJSON:introduction];
         NSLog(@"introductionArray.eventID:%@      [self.defaults objectForKey:EVENT_ID]:%@", introductionArray.eventID, [self.defaults objectForKey:EVENT_ID]);
@@ -84,12 +79,21 @@ CPJMODEL_IMPLEMENT(CPJIntroductionArray)
             }else
                 NSLog(@"文件写入失败");
         }
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError*error) {
-        NSLog(@"失败");
+
     }];
+    
+    [network requestWithIdentifier:@""];
+    
+//    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+//    [session GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"成功： %@", responseObject);
+//        //成功后重写json文件
+//        
+//        
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError*error) {
+//        NSLog(@"失败");
+//    }];
 
 }
 

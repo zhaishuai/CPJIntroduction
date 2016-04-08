@@ -10,7 +10,7 @@
 #define PrefixHeader_pch
 
 #import <IOSGeneralPurposeFramework/IOSGeneralPurposeFramework.h>
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 
 // Include any system framework and library headers here that should be included in all compilation units.
